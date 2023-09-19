@@ -51,7 +51,9 @@ function mailbox_backup()
     YESTERDAY=$(date -d "$DATE" --date='-48 hours' +%m/%d/%Y)
     AFTER='&'"query=after:\"$YESTERDAY\""
   fi
+  set -x
   $ZMMAILBOX -t0 -z -m "$1" getRestURL --output "$TEMPDIR"/"$1".tgz "/?fmt=tgz&resolve=skip$AFTER" > "$TEMP_CLI_OUTPUT" 2>&1
+  set +x
   BASHERRCODE=$?
   if [[ $BASHERRCODE -eq 0 ]]; then
     if [[ -s $TEMPDIR/$1.tgz ]]; then
