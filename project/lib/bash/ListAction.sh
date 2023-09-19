@@ -3,6 +3,11 @@
 # Ldap Build List - No ldapadd or ldapdelete here
 ################################################################################
 
+if [ -f ~/.zmbackuprc ]
+then
+    . ~/.zmbackuprc
+fi
+
 ################################################################################
 # build_listBKP: Build the list of accounts to be extracted via LDAP &/or Mailbox
 # Options:
