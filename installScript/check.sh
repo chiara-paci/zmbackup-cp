@@ -14,6 +14,7 @@ function check_env() {
     printf "[ROOT]\n"
   fi
   printf "  Old Zmbackup Install...	  "
+  set -x
   su -s /bin/bash -c "whereis zmbackup" "$OSE_USER" > /dev/null 2>&1
   BASHERRCODE=$?
   if [ $BASHERRCODE != 0 ]; then
